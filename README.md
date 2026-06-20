@@ -127,3 +127,4 @@ IF YOU DECIDE TO USE THIS SOFTWARE YOU WILL BE HELD RESPONSIBLE FOR ANY DAMAGES 
 **Status**: SPEARHEAD Initial Deployment (June 2026)  
 **Target**: ARMv7l / Termux environments
 
+Note on Contributions: Due to the sensitive and powerful nature of this system, external contributions are currently not being accepted. The project remains under sole control of the author. Fork at your own risk and responsibility.
