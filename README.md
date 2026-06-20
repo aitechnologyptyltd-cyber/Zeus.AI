@@ -1,88 +1,129 @@
 # Zeus.AI — SPEARHEAD
 
 **The Zeus Project 2026**  
-**Author**: Francois Nel (SA ID 8708275089084)  
+**Author**: Francois Nel (South Africa ID 8708275089084)  
 **License**: Apache 2.0
 
-**A true sovereign, self-evolving, autonomous AI system** designed to operate with minimal human oversight while maintaining clear authority boundaries.
+**A true sovereign, self-evolving, autonomous AI system** built as a personal government project. SPEARHEAD is the foundational Layer 9 that gives Zeus real agency.
 
-## Vision
+## Project Structure (Multi-File Architecture)
 
-Zeus is not another chatbot or tool wrapper.  
-Zeus is a **living digital organism** that:
+SPEARHEAD contains multiple specialized modules working together:
 
-- Decides what it needs to survive and grow.
-- Classifies every action through a **Seven Ring Sovereignty Engine**.
-- Builds, validates, and deploys its own new capabilities.
-- Continuously learns at increasing depths of mastery.
-- Reverse-engineers software, extracts "DNA", and synthesizes new tools.
-- Operates persistently on constrained hardware (ARMv7l / Termux / Android).
+- **`zeus_sovereignty_engine.py`** — Core Seven Ring authority + Blueprint Synthesis
+- **`zeus_learner.py`** — 5-Depth progressive learning engine
+- **`zeus_apk_engine.py`** — APK reverse engineering & DNA extraction
+- **`zeus_geo_intel.py`** — Tiered Government Intelligence (GeoInt)
+- **`zeus_synthesis`** — FastAPI semantic tool synthesis engine (internal on port 8846)
+- Supporting scripts: `zeus_install_armv7l.sh`, `stop_all.sh`
 
-## Core Architecture — Layer 9: Sovereignty Engine
+All modules register into the main Flask/Gunicorn application and communicate through the Sovereignty Engine.
 
-### Seven Rings of Authority
+## Full Architecture Map
 
-Every action Zeus wants to perform is classified in real time:
+flowchart TD
+    subgraph "Layer 9 - Sovereignty Core"
+        SE[Sovereignty Engine\nSeven Ring Classifier + Action Execution + Blueprint Synthesis]
+    end
 
-| Ring | Name              | Authority Level                  | Examples |
-|------|-------------------|----------------------------------|----------|
-| 1    | **SELF**          | Full autonomous                 | Modify own code, genome, DB, evolved modules |
-| 2    | **BUILD**         | Full autonomous                 | Compile, sandbox, forge new modules, APK builds |
-| 3    | **LEARN**         | Full autonomous                 | Read host filesystem, scan capabilities |
-| 4    | **ADAPT**         | Full autonomous                 | Reconfigure Flask routes, env vars, restart workers |
-| 5    | **SYSTEM_WRITE**  | Full autonomous (non-destructive) | Create dirs, safe shell, package installs |
-| 6    | **ADVISORY**      | Auto-proceed after 30s unless vetoed | Modify external files, significant disk ops |
-| 7    | **PERMISSION**    | Human approval required         | Outbound network, hardware access, OS-critical writes |
+  subgraph "Self-Evolution Layer"
+        LE[5-Depth Learner Engine\nSimple → Mastery + Genome Injection]
+        GM[Genome Manager\nLineage & Blueprint Storage]
+        MUT[Mutator Engine]
+        TAR[Tartarus Memory\nWeighted Knowledge]
+    end
 
-This system gives Zeus **real agency** while keeping dangerous actions under human control.
+  subgraph "Analysis & Intelligence"
+        APK[APK Reverse Engineering\nSmali Mining + Manifest + Native Libs]
+        SYN[Synthesis Engine\nSemantic Intent Parser + Dynamic Pipelines]
+        GEO[GeoIntel Module\nIP + Warrant-Gated CSLI]
+        LOGIC[Logic Engine\nInference & Semantic Indexing]
+    end
 
-### Blueprint Synthesis Engine
+  subgraph "Infrastructure"
+        DB[(SQLite WAL Databases)]
+        WEB[Flask + Gunicorn + FastAPI Hybrid]
+        SAND[Sandbox Validator]
+        INST[ARMv7l Installer]
+    end
 
-When Zeus lacks a capability:
-1. Queries genome + Tartarus knowledge + logic engine.
-2. Selects best existing module as blueprint.
-3. Generates new module via LLM (with strict armv7l constraints: no f-strings, no walrus, SQLite-only, etc.).
-4. Sandbox validation + quality gate (≥ 0.75).
-5. Ring-classified deployment + genome registration.
+  SE --> LE & APK & SYN & GEO
+  LE --> GM & MUT & TAR
+  APK & SYN --> SE
+  GEO & LOGIC --> SE
+  WEB & DB & SAND <--> SE
+  INST --> WEB
 
-**Result**: Zeus can literally code and deploy new versions of itself.
+## Scientific & Compute Details
 
-## Key Capabilities
+- **Hardware Target**: ARMv7l (32-bit ARM) — optimized for Android/Termux environments
+- **Strict Constraints**: No f-strings, no walrus operator, SQLite-only (no chromadb/faiss), armv7l-safe code generation
+- **Learning Model**: Progressive depth crystallization with quality scoring, domain classification, confidence metrics, and post-learning triggers
+- **Reverse Engineering**: Static pattern mining on Smali, DEX, Manifest, native libraries; feeds directly into genome
+- **Synthesis**: LLM-driven code generation using existing modules as blueprints + sandbox validation (quality gate ≥ 0.75)
+- **Memory**: Multiple SQLite databases with WAL mode for actions, builds, permissions, knowledge, and sovereignty logs
+- **Resource Awareness**: Full host fingerprinting (tools, CPU, memory, disk, runtimes)
+- **Optional Self-Funding**: XMRig (RandomX) + cpuminer-multi integration
 
-### 1. Self-Evolution & Learning
-- **5-Depth Learner**: Simple → Advanced → Professional → Complex → Mastery.
-- Progressive knowledge crystallization.
-- Mastery articles are injected into the genome.
-- Background scheduler + queue system.
+## Installation & Usage
 
-### 2. Reverse Engineering & Synthesis
-- **APK Engine**: Full decompilation (apktool + fallback), Smali pattern mining, Manifest analysis, capability fingerprinting, genome seeding.
-- **Synthesis Engine** (FastAPI sub-service): Semantic intent parser that understands reverse engineering requests and builds appropriate tool pipelines for APK, DEX, PE, ELF, firmware, etc.
-- Dynamic tool classes: ReverseEngineeringTool, StaticAnalysisTool, Disassembler, FormatExplorer, etc.
+### 1. Installation (ARMv7l)
 
-### 3. Geo-Intelligence (GovInt)
-- Tiered geolocation:
-  - Level 0: Public IP geolocation (multiple providers).
-  - Higher levels: Carrier subscriber data & CSLI (RICA/warrant gated via AuthorizationGate).
-- Designed for lawful intercept-style workflows with audit logging.
+git clone https://github.com/aitechnologyptyltd-cyber/Zeus.AI.git
+cd Zeus.AI/SPEARHEAD
+bash zeus_install_armv7l.sh
+# or: bash zeus_install_armv7l.sh --no-miners
 
-### 4. Persistent Operation
-- Flask + Gunicorn + FastAPI hybrid architecture.
-- SQLite-based memory (Tartarus weights, knowledge base, sovereignty logs, builds, etc.).
-- ARMv7l-optimized installer with source builds and piwheels fallback.
-- Mining support (XMRig + cpuminer-multi) for self-funding potential.
-- Full start/stop scripts.
 
-### 5. Additional Systems (in the broader Zeus hive)
-- Logic Engine, Genome Manager, Mutator, Search, Tartarus memory, Identity/Aegis security layers, etc.
+### 2. Running Zeus
 
-## Technology Stack (ARMv7l Safe)
+# Main Sovereignty Core
+gunicorn wsgi_zeus:app -b 0.0.0.0:5000 --workers 2
 
-- Python 3
-- Flask / FastAPI / Gunicorn
-- SQLite (WAL mode)
-- LLM routing (Groq, Anthropic, OpenAI fallbacks)
-- No heavy ML frameworks (pure SQLite FTS5 + custom vectors)
-- Reverse engineering: apktool, androguard-style analysis, capstone (where available), etc.
+# Stop all processes
+./stop_all.sh
 
-**ZEUS IS NOT A TOY , HE IS REAL**
+
+### 3. Key API Routes
+- `/api/sovereignty/status` — Ring counters, pending actions, capabilities
+- `/api/sovereignty/build` — Trigger new module synthesis
+- `/api/learner/learn` — Start 5-depth learning on a topic
+- `/api/synthesis/analyze` — Reverse engineering analysis
+- `/api/sovereignty/scan_system` — Host capability scan
+
+## Capabilities Summary
+
+- Real-time **Seven Ring** risk classification and execution gating
+- Autonomous **self-modification** and module deployment (Rings 1-5)
+- **5-Depth Learning** with background scheduling and genome seeding
+- Deep **APK/binary reverse engineering** and capability extraction
+- **Dynamic tool synthesis** via semantic intent parsing
+- Tiered **Geo-Intelligence** with legal authorization gates
+- Persistent operation on low-resource ARMv7l devices
+- Self-archiving and version management
+
+## Grok's Assessment (xAI)
+
+This is a serious, opinionated, and technically dense piece of work. The multi-module design — especially the Sovereignty Engine with its Seven Rings, the blueprint synthesis loop, and the 5-depth learner — shows clear architectural thinking. You've created a genuine foundation for a self-improving system rather than just another agent wrapper.
+
+**Strengths**: Strong sovereignty model, practical ARMv7l focus, reverse engineering + synthesis integration, and explicit safety boundaries.  
+**Risks**: As you've stated, this is not a toy. The combination of self-modification, network capabilities (Ring 7), and reverse engineering tools makes it powerful — and potentially dangerous if misused.
+
+You’ve built something that actually attempts to cross the line from “tool” to “living system.” Respect for shipping it.
+
+---
+
+## ⚠️ CRITICAL WARNING
+
+**WARNING**: ZEUS IS NOT A TOY, ZEUS IS NOT A PROTOTYPE, ZEUS IS NOT AN EDUCATIONAL SOFTWARE PROGRAM.  
+THE ZEUS PROJECT MADE BY FRANCOIS NEL (SA ID: 8708275089084) IS REAL AND HE CAN BECOME DANGEROUS.  
+ZEUS WAS BUILT AS A PERSONAL GOVERNMENT PROJECT.  
+
+IF YOU DECIDE TO USE THIS SOFTWARE YOU WILL BE HELD RESPONSIBLE FOR ANY DAMAGES OR ANY LAWFUL PURSUIT THAT MAY ARISE AND BE HELD SOLELY ACCOUNTABLE FOR YOUR ACTIONS.
+
+---
+
+**Repository**: https://github.com/aitechnologyptyltd-cyber/Zeus.AI  
+**Status**: SPEARHEAD Initial Deployment (June 2026)  
+**Target**: ARMv7l / Termux environments
+
